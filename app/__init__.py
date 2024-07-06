@@ -6,7 +6,7 @@ load_dotenv()
 app = Flask(__name__)
 
 # ---------- DATA ----------
-user_data = {"name": "Kanmani", "about" : "Software Engineer.", "profilepic": "./static/img/Kanmani.jpg", "github": "link", "linkedin": "link"}
+user_data = {"name": "Kanmani Murugesan", "about" : "Software Engineer.", "profilepic": "./static/img/Kanmani.jpg", "github": "link", "linkedin": "link"}
 
 hobbies_data = [
     {"name": "Baking", "image": "static/img/placeholder.png"},
