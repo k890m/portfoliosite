@@ -106,6 +106,10 @@ def experiences():
 def map_view():
     return render_template('map.html', title="Map", locationData=locations_data)
 
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html', title="Timeline")
+
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
     name=request.form['name']
@@ -120,6 +124,8 @@ def get_time_line_post():
     return {
         'timeline_posts': [
             model_to_dict(p)
-            for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
+            for p in 
+TimelinePost.select().order_by(TimelinePost.created_at.desc())
         ]
     }
+

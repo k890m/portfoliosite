@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timeline</title>
+  </head>
+  <body>
+    <h1>Add to The Timeline Posts</h1>
+    <form method="POST" action="/api/timeline_post" target="hiddenIframe">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required /><br /><br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br /><br />
+      <label for="content">Content:</label>
+      <input type="text" id="content" name="content" required /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+    <h4>Reload Page to See Post Below</h4>
+    <iframe name="hiddenIframe" style="display:none;"></iframe>
+
+    <div class="postsContainer" id="postsContainer"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const postsContainer = document.getElementById("postsContainer");
+
+        // Function to fetch and display posts
+        async function loadPosts() {
+          try {
+            const response = await fetch("/api/timeline_post");
+            if (response.ok) {
+              const data = await response.json();
+              const posts = data.timeline_posts;
+              if (Array.isArray(posts)) {
+                postsContainer.innerHTML = posts
+                  .map(
+                    (post) =>
+                      `<div class="post">${post.name} - ${post.content}</div>`
+                  )
+                  .join("");
+              } else {
+                console.error(
+                  "API response does not contain an array of posts:",
+                  posts
+                );
+              }
+            } else {
+              console.error("Failed to load posts, status:", response.status);
+            }
+          } catch (error) {
+            console.error("Error fetching posts:", error);
+          }
+        }
+
+        // Initial load of posts
+        loadPosts();
+      });
+    </script>
+  </body>
+</html>
