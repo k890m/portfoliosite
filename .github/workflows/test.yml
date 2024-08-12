@@ -28,7 +28,7 @@ jobs:
         run: python3-virtualenv/bin/pip install -r requirements.txt
 
       - name: Permissions
-        run: chmod +x ./tests/run_test.sh
+        run: chmod +x ./run_test.sh
 
       - name: Run Tests
-        run: ./tests/run_test.sh
+        run: ./run_test.sh
