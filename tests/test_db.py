@@ -1,8 +1,10 @@
 # tests/test_db.py
 
 import unittest
-from peewee import SqliteDatabase, Model, CharField, TextField
+from peewee import *
+from app import TimelinePost
 
+'''
 class TimelinePost(Model):
     name = CharField()
     email = CharField()
@@ -10,19 +12,25 @@ class TimelinePost(Model):
 
     class Meta:
         database = SqliteDatabase(':memory:')
+'''
+
+MODELS = [TimelinePost]
+
+test_db = SqliteDatabase(':memory:')
+
 
 class TestTimelinePost(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.test_db.bind([TimelinePost])
-        cls.test_db.connect()
-        cls.test_db.create_tables([TimelinePost])
+        test_db.bind(MODELS, bind_refs=False, bind_backrefs=False)
+        test_db.connect()
+        test_db.create_tables(MODELS)
 
     @classmethod
     def tearDownClass(cls):
-        cls.test_db.drop_tables([TimelinePost])
-        cls.test_db.close()
+        test_db.drop_tables(MODELS)
+        test_db.close()
 
     def test_timeline_post(self):
         first_post = TimelinePost.create(name='John Doe', email='john@example.com', content='Hello world, I\'m John!')
