@@ -17,7 +17,7 @@ class AppTestCase(unittest.TestCase):
 
         assert "<h1>Hi, I'm Kanmani Murugesan 👋</h1>" in html
 
-    '''
+    
     def test_timeline(self):
         response = self.client.get("/api/timeline_post")
         assert response.status_code == 200
@@ -38,7 +38,7 @@ class AppTestCase(unittest.TestCase):
         assert json["timeline_posts"][0]["content"] == "This is a test post."
 
     
-
+    '''
     def test_malformed_timeline_post(self):
    
         response = self.client.post("/api/timeline_post", data={"email": "john@example.com", "content": "Hello world, I'm John!"})
