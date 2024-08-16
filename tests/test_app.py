@@ -38,7 +38,7 @@ class AppTestCase(unittest.TestCase):
         assert json["timeline_posts"][0]["email"] == "alice@example.com"
         assert json["timeline_posts"][0]["content"] == "This is a test post."
 
-    '''
+    
     
     def test_malformed_timeline_post(self):
    
