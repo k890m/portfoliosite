@@ -1,4 +1,3 @@
-
 import unittest
 import os
 os.environ['TESTING'] = 'true'
@@ -28,9 +27,9 @@ class AppTestCase(unittest.TestCase):
         assert len(json["timeline_posts"]) == 0
         
 
-        response = self.client.post("/api/timeline_post", data={"name": "Alice", "email": "alice@example.com", "content": "This is a test post."})
+        response = self.client.post("/api/timeline_post", data={"name": "Alice", "email": "alice@example.com", "content": "This is a test post.", created})
         assert response.status_code == 200
-        '''
+        
         json = response.get_json()
         print(json)  
         assert "timeline_posts" in json
@@ -39,7 +38,7 @@ class AppTestCase(unittest.TestCase):
         assert json["timeline_posts"][0]["email"] == "alice@example.com"
         assert json["timeline_posts"][0]["content"] == "This is a test post."
 
-    
+    '''
     
     def test_malformed_timeline_post(self):
    
