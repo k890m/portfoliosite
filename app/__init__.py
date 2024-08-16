@@ -34,7 +34,7 @@ mydb.connect()
 mydb.create_tables([TimelinePost])
 
 # ---------- DATA ----------
-user_data = {"name": "Kanmani Murugesan", "about" : "Software Engineer, MLH Production Engineering Fellow, CodePath TF", "profilepic": "./static/img/Kanmani.jpg", "github": "link", "linkedin": "link"}
+user_data = {"name": "Kanmani Murugesan", "about" : "Software Engineer, MLH Production Engineering Fellow, CodePath Tech Fellow", "profilepic": "./static/img/Kanmani.jpg", "github": "link", "linkedin": "link"}
 
 hobbies_data = [
     {"name": "Baking", "image": "static/img/placeholder.png"},
