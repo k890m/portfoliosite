@@ -31,8 +31,8 @@ class AppTestCase(unittest.TestCase):
         assert response.status_code == 200
     
         json = response.get_json()
-        #print(json)  
-        assert "timeline_post" in json
+        print(json)  
+        assert "timeline_posts" in json
         
         assert len(json["timeline_post"]) == 1
         assert json["timeline_post"][0]["name"] == "Alice"
