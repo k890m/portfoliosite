@@ -15,7 +15,7 @@ class AppTestCase(unittest.TestCase):
         html = response.get_data(as_text=True)
         assert "<title>MLH Fellow</title>" in html
 
-        #assert "<h1>Hi, I'm {{user}} 👋</h1>" in html
+        assert "<h1>Hi, I'm Kanmani Murugesan 👋</h1>" in html
 
     '''
     def test_timeline(self):
