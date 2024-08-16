@@ -34,10 +34,10 @@ class AppTestCase(unittest.TestCase):
         print(json)  
         assert "timeline_posts" in json
         
-        assert len(json["timeline_post"]) == 1
-        assert json["timeline_post"][0]["name"] == "Alice"
-        assert json["timeline_post"][0]["email"] == "alice@example.com"
-        assert json["timeline_post"][0]["content"] == "This is a test post."
+        assert len(json["timeline_posts"]) == 1
+        assert json["timeline_posts"][0]["name"] == "Alice"
+        assert json["timeline_posts"][0]["email"] == "alice@example.com"
+        assert json["timeline_posts"][0]["content"] == "This is a test post."
 '''
     
     
