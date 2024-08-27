@@ -44,17 +44,12 @@ hobbies_data = [
 
 education_data = [
     {
-        "school": "School Name 1",
-        "img": "/static/img/placeholder.png",
-        "degree": "M.S in Computer Science",
-        "year": 2025
-    },
-    {
-        "school": "School Name 2",
+        "school": "University of Maryland",
         "img": "/static/img/placeholder.png",
         "degree": "B.S in Computer Science",
-        "year": 2021
-    }
+        "year": 2025
+    },
+   
 ]
 
 experiences_data = [
