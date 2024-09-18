@@ -10,6 +10,7 @@ This is a portfolio website that showcases an individual's interests, experience
 - **HTML & CSS Frontend**: Provides a responsive and visually appealing user interface.
 - **Bash Automation**: Automates deployment and testing tasks.
 - **Docker-Compose**: Manages containers for Nginx, MySQL, and the Flask site.
+- **System Monitoring**: Set up Prometheus and Grafana to monitor Docker containers, visualize metrics, and alert on potential issues.
 - **Unit and Integration Testing**: Ensures stability before deploying updates.
 
 ## Requirements
