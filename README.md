@@ -1,7 +1,5 @@
 # Production Engineering Portfolio Site
 
-## Features
-
 # Portfolio Site
 
 This is a portfolio website that showcases personal or professional projects. The site is powered by a **Flask** backend and styled with **HTML** and **CSS** for the frontend. It also includes **bash scripts** for automating the redeployment process using **Docker** for containerized services like **Nginx** and **MySQL**.
