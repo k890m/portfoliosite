@@ -1,79 +1,100 @@
-# Production Engineering - Week 1 - Portfolio Site
+# Production Engineering Portfolio Site
 
-Welcome to the MLH Fellowship! During Week 1, you'll be using Flask to build a portfolio site. This site will be the foundation for activities we do in future weeks so spend time this week making it your own and reflect your personality!
+## Features
 
-## Tasks
+# Portfolio Site
 
-Once you've got your portfolio downloaded and running using the instructions below, you should attempt to complete the following tasks.
+This is a portfolio website that showcases personal or professional projects. The site is powered by a **Flask** backend and styled with **HTML** and **CSS** for the frontend. It also includes **bash scripts** for automating the redeployment process using **Docker** for containerized services like **Nginx** and **MySQL**.
 
-For each of these tasks, you should create an [Issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues) and work on them in a new [branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches). When the task has been completed, you should open a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) and get another fellow in your pod to give you feedback before merging it in.
+## Features
 
-*Note: Make sure to include a link to the Issue you're progressing on inside of your Pull Request so your reviewer knows what you're progressing on!*
+- **Flask Backend**: Handles dynamic content and routing.
+- **HTML & CSS Frontend**: Provides a responsive and visually appealing user interface.
+- **Bash Automation**: Automates deployment and testing tasks.
+- **Docker-Compose**: Manages containers for Nginx, MySQL, and the Flask site.
+- **Unit and Integration Testing**: Ensures stability before deploying updates.
 
-### GitHub Tasks
-- [x] Create Issues for each task below
-- [x] Progress on each task in a new branch
-- [x] Open a Pull Request when a task is finished to get feedback
+## Requirements
 
-### Portfolio Tasks
-- [x] Add a photo of yourself to the website
-- [x] Add an "About youself" section to the website.
-- [x] Add your previous work experiences
-- [x] Add your hobbies (including images)
-- [x] Add your current/previous education
-- [x] Add a map of all the cool locations/countries you visited
+Ensure the following are installed on your system:
 
-### Flask Tasks
-- [x] Get your Flask app running locally on your machine using the instructions below.
-- [x] Add a template for adding multiple work experiences/education/hobbies using [Jinja](https://jinja.palletsprojects.com/en/3.0.x/api/#basics)
-- [x] Create a new page to display hobbies.
-- [x] Add a menu bar that dynamically displays other pages in the app
+- **Python 3.x**
+- **Flask**
+- **Docker**
+- **Docker Compose**
+- **Git**
+- **MySQL**
 
+## Installation and Setup
 
-## Getting Started
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/k890m/portfoliosite
+   cd porfoliosite
+   ```
 
-You need to do all your progress here.
+2. **Set Up Virtual Environment**:
+   Create a Python virtual environment and install the required packages:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
 
-## Installation
+5. **Access the Application**:
+   Once the containers are up and running, the site will be available at `http://localhost`.
 
-Make sure you have python3 and pip installed
+## Bash Scripts
 
-Create and activate virtual environment using virtualenv
+The project includes several bash scripts for managing deployment and testing.
+
+### Redeployment Script
+
+To redeploy the site after pulling the latest changes from GitHub, use:
+
 ```bash
-$ python -m venv python3-virtualenv
-$ source python3-virtualenv/bin/activate
+./redeploy.sh
 ```
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all dependencies!
+This script pulls changes, runs unit and integration tests, and restarts the Docker containers. NOTE: If you choose to use Github actions you will be able to skip having to manually run this script.
+
+### Testing
+
+Unit and integration tests are automatically run as part of the redeployment process. You can also manually run the run_test.sh script.
 
 ```bash
-pip install -r requirements.txt
+./tests/run_test.sh
 ```
 
-## Usage
+Ensure all tests pass before moving on.
 
-Create a .env file using the example.env template (make a copy using the variables inside of the template)
+## Docker Containers
 
-Start flask development server
+The application uses Docker to manage services. The `docker-compose.yml` file defines the following containers:
+
+- **Nginx**: Acts as a reverse proxy to handle web traffic.
+- **MySQL**: Database service for storing site data.
+- **Flask Application**: Serves the portfolio content.
+
+You can stop the containers with:
+
 ```bash
-$ export FLASK_ENV=development
-$ flask run
+docker-compose down
 ```
 
-You should get a response like this in the terminal:
+## Troubleshooting
+
+If you encounter any issues, check the logs for the specific service:
+
+```bash
+docker logs <container_name>
 ```
-❯ flask run
- * Environment: development
- * Debug mode: on
- * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+
+Make sure all services are running properly by checking the Docker containers:
+
+```bash
+docker ps
 ```
 
-You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000` in the browser! 
+If you have other issues try writing tests or debugging.
 
-*Note: The portfolio site will only work on your local machine while you have it running inside of your terminal. We'll go through how to host it in the cloud in the next few weeks!* 
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
