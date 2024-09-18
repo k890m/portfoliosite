@@ -2,7 +2,7 @@
 
 # Portfolio Site
 
-This is a portfolio website that showcases indivduals interests, projects, and education. The site is powered by a **Flask** backend and styled with **HTML** and **CSS** for the frontend. It also includes **bash scripts** for automating the redeployment process using **Docker** for containerized services like **Nginx** and **MySQL**.
+This is a portfolio website that showcases an individual's interests, experience, projects, and education. The site is powered by a **Flask** backend and styled with **HTML** and **CSS** for the frontend. It also includes **bash scripts** for automating the redeployment process using **Docker** for containerized services like **Nginx** and **MySQL**.
 
 ## Features
 
